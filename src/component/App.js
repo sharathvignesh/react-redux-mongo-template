@@ -1,5 +1,5 @@
 import React, { Component,PropTypes } from 'react';
-import {storeName} from '../actions/actions.js';
+import {storeName, storeValue} from '../actions/actions.js';
 import {connect} from 'react-redux';
 import { browserHistory } from 'react-router';
 
@@ -7,20 +7,20 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.storeName = this.storeName.bind(this);
+      this.storeValue = this.storeValue.bind(this);
   }
   storeName(e){
     console.log(e.target.value);
     this.props.dispatch(storeName(e.target.value));
   }
-  submit(){
-    console.log("submit");
-    return browserHistory.push('/ret');
+  storeValue(){
+    this.props.dispatch(storeValue(this.props.name));
   }
   render() {
     return (
       <div>
         <input type="text" value={this.props.name} onChange={this.storeName} />
-        <button type="submit" onClick={this.submit}>submit</button>
+        <button type="submit" onClick={this.storeValue}>submit</button>
       </div>
     );
   }

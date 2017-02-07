@@ -1,4 +1,6 @@
 export const STORE_NAME = 'STORE_NAME';
+export const STORE_VALUE = 'STORE_VALUE';
+
 
 export function storeName(name) {
   return dispatch => {
@@ -8,3 +10,7 @@ export function storeName(name) {
     });
   };
 }
+
+export function storeValue(value) {
+
+    }//postItem()
